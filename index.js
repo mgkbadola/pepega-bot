@@ -17,7 +17,7 @@ function contains(target, pattern){
 
 //zulul prompts
 let z = ['zulul','allo','vj emmie','supa', 'watafak','action is coming','gwa','know da', 'commandos','i prefer men',
-    'captain alex','subaru','warrior','bruce u', 'uganda', 'ugandan bruce lee', 'wakaliwood']
+    'captain alex','subaru','warrior','bruce u', 'uganda', 'ugandan bruce lee', 'wakaliwood','v1', 'vi von','vi won', 'we won' ]
 
 const prefix = '!';
 Bot.on('message', msg=>{
