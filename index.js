@@ -16,7 +16,7 @@ function contains(target, pattern){
 }
 
 //zulul prompts
-let z = ['zulul','allo','vj emmie','supa', 'watafak','action is coming','gwa','know da', 'commandos','i prefer men',
+let z = ['zulul','allo','vj emmie','supa', 'watafak','action is coming','gwa','know da', 'commandos','i prefer men', 'poopoo',
     'captain alex','subaru','warrior','bruce u', 'uganda', 'ugandan bruce lee', 'wakaliwood','v1', 'vi von','vi won', 'we won' ]
 
 const prefix = '!';
@@ -32,6 +32,7 @@ Bot.on('message', msg=>{
     let mc = msg.guild.emojis.cache.get("713340037043060766").toString();
     let pog = msg.guild.emojis.cache.get("712180552408760351").toString();
     let ppscoots = msg.guild.emojis.cache.get("713344557575700530").toString();
+    let doggie = msg.guild.emojis.cache.get("713754840865701958").toString();
 
     let c= msg.content.toString()
 
@@ -40,6 +41,11 @@ Bot.on('message', msg=>{
         let t = msg.content.substring(prefix.length).split(" ");
         switch (t[0].toLowerCase()) {
             //8ball - Command under construction :D
+            case 'doggie':
+                msg.channel.send("I'm a DOGGIE! " + doggie)
+                let dog = new Discord.MessageAttachment('./assets/doggie.ogg')
+                msg.channel.send(dog)
+                break;
             case 'mc':
                 msg.channel.send('-25$ a month '+pepelook +'\t'+ mc +' I ELP SIR!')
                 break;
