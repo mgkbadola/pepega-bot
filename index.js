@@ -33,7 +33,10 @@ Bot.on('message', msg=>{
     let pog = msg.guild.emojis.cache.get("712180552408760351").toString();
     let ppscoots = msg.guild.emojis.cache.get("713344557575700530").toString();
     let doggie = msg.guild.emojis.cache.get("713754840865701958").toString();
-
+    let knioY = msg.guild.emojis.cache.get("714824198299582486").toString();
+    let pepeg = msg.guild.emojis.cache.get("711091239667105842").toString();
+    let gaben = msg.guild.emojis.cache.get("714826598355828736").toString(); 
+    
     let c= msg.content.toString()
 
     //commands
@@ -41,6 +44,9 @@ Bot.on('message', msg=>{
         let t = msg.content.substring(prefix.length).split(" ");
         switch (t[0].toLowerCase()) {
             //8ball - Command under construction :D
+            case 'bp':
+                msg.channel.send("Time to spend all my savings! " + pepeg + knioY + gaben + "Wise choice, my child!")
+                break;
             case 'doggie':
                 msg.channel.send("I'm a DOGGIE! " + doggie)
                 let dog = new Discord.MessageAttachment('./assets/doggie.ogg')
