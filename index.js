@@ -108,8 +108,8 @@ Bot.on('message', msg=>{
             case 'pepeg':
             case 'pepega':
             case 'pepege':
-                const pepeg = new Discord.MessageAttachment('./assets/pepeg.ogg')
-                msg.channel.send(pepeg)
+                const admiral_pepeg = new Discord.MessageAttachment('./assets/pepeg.ogg')
+                msg.channel.send(admiral_pepeg)
                 break;
             case 'userinfo':
                 let user = msg.mentions.users.first()
