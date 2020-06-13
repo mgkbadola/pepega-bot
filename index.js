@@ -58,6 +58,9 @@ Bot.on('message', msg=>{
             case '8ball':
                 msg.channel.send('Command under construction!')
                 break;
+            case 'kekega':
+                let kekega = new Discord.MessageAttachment('./assets/kekega_lord.png')
+                msg.channel.send(kekega)
             case 'kekw':
             case 'etu':
                 let etu = new Discord.MessageAttachment('./assets/kekw.ogg')
