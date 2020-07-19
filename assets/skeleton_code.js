@@ -4,7 +4,7 @@ const Bot = new Discord.Client();
 Bot.on('ready', ()=>{
     console.log('PepegaBot is now online.');
 });
-const token = 'NzEyMTQ5MDM3NTcwMDY0NDQ0.XsOTlQ.RA0CyyZGCU-dRyuuu_C9GjVKd6w';
+const token = 'Imagine Leaking Token LuL';
 
 //check whether string contains these words
 function contains(target, pattern){
@@ -36,9 +36,8 @@ Bot.on('message', msg=>{
     let knioY = msg.guild.emojis.cache.get("714824198299582486").toString(); //Yoink GIF
     let pepeg = msg.guild.emojis.cache.get("711091239667105842").toString(); //Pepeg
     let gaben = msg.guild.emojis.cache.get("714826598355828736").toString(); //GabeN
-    let bear = msg.guild.emojis.cache.get("722749179931262997").toString(); //PedoBear
     let wk = msg.guild.emojis.cache.get("722754412795265106").toString(); //Wraith King GIF
-    
+
     let c= msg.content.toString();
 
     //commands
@@ -46,10 +45,6 @@ Bot.on('message', msg=>{
         let t = msg.content.substring(prefix.length).split(" ");
         switch (t[0].toLowerCase()) {
             //8ball - Command under construction :D
-            case 'code':
-                let code = new Discord.MessageAttachment('./assets/skeleton_code.js');
-                msg.channel.send(code);
-                break;
             case 'bp':
                 msg.channel.send("Time to spend all my savings! " + pepeg + knioY + gaben + " Wise choice, my child!");
                 break;
@@ -141,16 +136,6 @@ Bot.on('message', msg=>{
                     //display all roles
                     .addField('Roles', member.roles.cache.map(r => `${r}`).join(' | '), true);
                 msg.channel.send(info);
-                break;
-            case 'yeezus':
-                msg.channel.send('who is yeezus?:rolling_eyes::face_with_hand_over_mouth::thinking::yawning_face:\n' +
-                    '\n' +
-                    'in math: pedo'+ bear + bear + '\n' +
-                    'in history: pedo'+ bear + bear + '\n' +
-                    'in art :pedo'+ bear + bear + '\n'+
-                    'in science: pedo'+ bear + bear + '\n' +
-                    'in geography: pedo'+ bear + bear + '\n');
-                msg.channel.send('Just kidding, you kinda cute ngl \n   :flushed:\n:point_right::point_left:');
                 break;
             case 'bruoh':
                 msg.channel.send('Bruoh\'s cheerleader WK = insta win ' + wk);
