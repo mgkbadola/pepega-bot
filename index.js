@@ -1,15 +1,16 @@
 //pre-login
 const Discord = require('discord.js');
 const Bot = new Discord.Client();
-Bot.on('ready', ()=>{
+
+Bot.once('ready', () => {
     console.log('PepegaBot is now online.');
 });
 const token = 'NzEyMTQ5MDM3NTcwMDY0NDQ0.XsOTlQ.RA0CyyZGCU-dRyuuu_C9GjVKd6w';
 
 //check whether string contains these words
-function contains(target, pattern){
+function contains(target, pattern) {
     let value = 0;
-    pattern.forEach(function(word){
+    pattern.forEach(function (word) {
         value = value + target.includes(word);
     });
     return (value >= 1)
@@ -20,29 +21,30 @@ let z = ['zulul','allo','vj emmie','supa', 'watafak','action is coming','gwa','k
     'captain alex','subaru','warrior','bruce u', 'uganda', 'ugandan bruce lee', 'wakaliwood','v1', 'vi von','vi won', 'we won' ];
 
 const prefix = '!';
-Bot.on('message', msg=>{
+Bot.on('message', msg=> {
 
     //emotes
-    let ome = msg.guild.emojis.cache.get("700557688022630511").toString(); //OMEGALUL
-    let omes = msg.guild.emojis.cache.get("712701478787088524").toString(); //smolOME
-    let forhd = msg.guild.emojis.cache.get("711862298196705320").toString(); //4Head
-    let zulul = msg.guild.emojis.cache.get("712738743395811401").toString(); //ZULUL
-    let kekw = msg.guild.emojis.cache.get("700557146697367582").toString(); //KEKW
-    let pepelook = msg.guild.emojis.cache.get("713340037713887272").toString(); //pepeLook
-    let mc = msg.guild.emojis.cache.get("713340037043060766").toString(); //Mega Subscriber Pepeg
-    let pog = msg.guild.emojis.cache.get("712180552408760351").toString(); //Pog
-    let ppscoots = msg.guild.emojis.cache.get("713344557575700530").toString(); //Pepescoots
-    let doggie = msg.guild.emojis.cache.get("713754840865701958").toString(); //Dogege
-    let knioY = msg.guild.emojis.cache.get("714824198299582486").toString(); //Yoink GIF
-    let pepeg = msg.guild.emojis.cache.get("711091239667105842").toString(); //Pepeg
-    let gaben = msg.guild.emojis.cache.get("714826598355828736").toString(); //GabeN
-    let bear = msg.guild.emojis.cache.get("722749179931262997").toString(); //PedoBear
-    let wk = msg.guild.emojis.cache.get("722754412795265106").toString(); //Wraith King GIF
-    
-    let c= msg.content.toString();
+    let ome = Bot.emojis.cache.get("700557688022630511").toString();//OMEGALUL
+    let omes = Bot.emojis.cache.get("712701478787088524").toString(); //smolOME
+    let forhd = Bot.emojis.cache.get("711862298196705320").toString(); //4Head
+    let zulul = Bot.emojis.cache.get("712738743395811401").toString(); //ZULUL
+    let kekw = Bot.emojis.cache.get("700557146697367582").toString(); //KEKW
+    let pepelook = Bot.emojis.cache.get("713340037713887272").toString(); //pepeLook
+    let mc = Bot.emojis.cache.get("713340037043060766").toString(); //Mega Subscriber Pepeg
+    let pog = Bot.emojis.cache.get("712180552408760351").toString(); //Pog
+    let ppscoots = Bot.emojis.cache.get("713344557575700530").toString(); //Pepescoots
+    let doggie = Bot.emojis.cache.get("713754840865701958").toString(); //Dogege
+    let knioY = Bot.emojis.cache.get("714824198299582486").toString(); //Yoink
+    let pepeg = Bot.emojis.cache.get("711091239667105842").toString(); //Pepeg
+    let gaben = Bot.emojis.cache.get("714826598355828736").toString(); //GabeN
+    let bear = Bot.emojis.cache.get("722749179931262997").toString(); //PedoBear
+    let wk = Bot.emojis.cache.get("722754412795265106").toString(); //Wraith King GIF
+    let pandit = Bot.emojis.cache.get("734405304179228792").toString();
+
+    let c = msg.content.toString();
 
     //commands
-    if(c[0]==='!') {
+    if (c[0] === '!') {
         let t = msg.content.substring(prefix.length).split(" ");
         switch (t[0].toLowerCase()) {
             //8ball - Command under construction :D
@@ -51,18 +53,15 @@ Bot.on('message', msg=>{
                 msg.channel.send(code);
                 break;
             case 'bp':
-                msg.channel.send("Time to spend all my savings! " + pepeg + knioY + gaben + " Wise choice, my child!");
+                msg.channel.send("Time to spend all my savings! " + pepeg + " " + knioY + " " + gaben + " Wise choice, my child!");
                 break;
             case 'doggie':
-                msg.channel.send("I'm a DOGGIE! " + doggie);
+                msg.channel.send("I'm a DOGGIE!");
                 let dog = new Discord.MessageAttachment('./assets/doggie.ogg');
                 msg.channel.send(dog);
                 break;
             case 'mc':
                 msg.channel.send('-25$ a month '+pepelook +'\t'+ mc +' I ELP SIR!');
-                break;
-            case '8ball':
-                msg.channel.send('Command under construction!');
                 break;
             case 'kekega':
                 let kekega = new Discord.MessageAttachment('./assets/kekega_lord.png');
@@ -145,16 +144,25 @@ Bot.on('message', msg=>{
             case 'yeezus':
                 msg.channel.send('who is yeezus?:rolling_eyes::face_with_hand_over_mouth::thinking::yawning_face:\n' +
                     '\n' +
-                    'in math: pedo'+ bear + bear + '\n' +
-                    'in history: pedo'+ bear + bear + '\n' +
-                    'in art :pedo'+ bear + bear + '\n'+
-                    'in science: pedo'+ bear + bear + '\n' +
-                    'in geography: pedo'+ bear + bear + '\n');
+                    'in math: pedo' + bear + bear + '\n' +
+                    'in history: pedo' + bear + bear + '\n' +
+                    'in art :pedo' + bear + bear + '\n' +
+                    'in science: pedo' + bear + bear + '\n' +
+                    'in geography: pedo' + bear + bear + '\n');
                 msg.channel.send('Just kidding, you kinda cute ngl \n   :flushed:\n:point_right::point_left:');
                 break;
             case 'bruoh':
                 msg.channel.send('Bruoh\'s cheerleader WK = insta win ' + wk);
                 break;
+            case 'pandit':
+            case '8ball':
+                var options = ["Feeling uncertain. Try Again.",
+                    "It seems like it.", "No.", "My prediction is in positive light.",
+                    "Negative remarks on that thought.", "Please try again.", "Yes.",
+                    "Most certainly.", "Heavily unlikely."];
+                let index = Math.floor(Math.random() * (options.length));
+                msg.channel.send(pandit);
+                msg.channel.send('`' + options[index] + '`');
         }
     }
 
