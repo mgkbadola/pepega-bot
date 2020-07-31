@@ -17,15 +17,63 @@ function contains(target, pattern) {
 }
 
 //ZULUL prompts
-let z = ['zulul','allo','vj emmie','supa', 'watafak','action is coming','gwa','know da', 'commandos','i prefer men', 'poopoo',
-    'captain alex','subaru','warrior','bruce u', 'uganda', 'ugandan bruce lee', 'wakaliwood','v1', 'vi von','vi won', 'we won' ];
+let z = ['zulul', 'allo', 'vj emmie', 'supa', 'watafak', 'action is coming', 'gwa', 'know da', 'commandos', 'i prefer men',
+    'poopoo', 'captain alex', 'subaru', 'warrior', 'bruce u', 'uganda', 'ugandan bruce lee', 'wakaliwood', 'v1', 'vi von',
+    'vi won', 'we won', 'vroom', 'expect the unexpectable', 'y are u gae'];
 
 const prefix = '!';
 Bot.on('message', msg=> {
 
     //emotes
-    let ome = Bot.emojis.cache.get("700557688022630511").toString();//OMEGALUL
-    let omes = Bot.emojis.cache.get("712701478787088524").toString(); //smolOME
+    let orange = []
+    orange[0] = Bot.emojis.cache.get("730338381086588928").toString();
+    orange[1] = Bot.emojis.cache.get("730338380851839056").toString();
+    orange[2] = Bot.emojis.cache.get("730338381204291637").toString();
+    orange[3] = Bot.emojis.cache.get("730338380814090331").toString();
+    orange[4] = Bot.emojis.cache.get("730338380226756640").toString();
+    orange[5] = Bot.emojis.cache.get("730338380709232672").toString();
+    orange[6] = Bot.emojis.cache.get("730338380700844095").toString();
+    orange[7] = Bot.emojis.cache.get("730338381044645918").toString();
+    orange[8] = Bot.emojis.cache.get("730338380789055530").toString();
+    orange[9] = Bot.emojis.cache.get("726460408441077810").toString();
+
+    let kekega = []
+    kekega[0] = Bot.emojis.cache.get("729533827768254557").toString();
+    kekega[1] = Bot.emojis.cache.get("729533828007198763").toString();
+    kekega[2] = Bot.emojis.cache.get("729533827747151874").toString();
+    kekega[3] = Bot.emojis.cache.get("729533827688431638").toString();
+    kekega[4] = Bot.emojis.cache.get("729533827701014599").toString();
+    kekega[5] = Bot.emojis.cache.get("729533827596419170").toString();
+    kekega[6] = Bot.emojis.cache.get("729533828103667752").toString();
+    kekega[7] = Bot.emojis.cache.get("729533828171038830").toString();
+    kekega[8] = Bot.emojis.cache.get("729533827810328600").toString();
+    kekega[9] = Bot.emojis.cache.get("718512084157202472").toString();
+
+    let kektff = []
+    kektff[0] = Bot.emojis.cache.get("731156841819537439").toString();
+    kektff[1] = Bot.emojis.cache.get("731156841886646373").toString();
+    kektff[2] = Bot.emojis.cache.get("731156841932914740").toString();
+    kektff[3] = Bot.emojis.cache.get("731156841840771165").toString();
+    kektff[4] = Bot.emojis.cache.get("731156842222321734").toString();
+    kektff[5] = Bot.emojis.cache.get("731156842302013490").toString();
+    kektff[6] = Bot.emojis.cache.get("731156844214747246").toString();
+    kektff[7] = Bot.emojis.cache.get("731156842151149619").toString();
+    kektff[8] = Bot.emojis.cache.get("731156842411065434").toString();
+    kektff[9] = Bot.emojis.cache.get("738773225999171706").toString();
+
+    let gun = []
+    gun[0] = Bot.emojis.cache.get("738769444523737207").toString();
+    gun[1] = Bot.emojis.cache.get("738769444091985941").toString();
+
+    let omegaluls = []
+    omegaluls[0] = Bot.emojis.cache.get("700557688022630511").toString();//OMEGALUL
+    omegaluls[1] = Bot.emojis.cache.get("712701478787088524").toString(); //smolOME
+
+    let fat = []
+    fat[0] = Bot.emojis.cache.get("738775043831627947").toString();
+    fat[1] = Bot.emojis.cache.get("738775043860988004").toString();
+    fat[2] = Bot.emojis.cache.get("738775044070703205").toString();
+
     let forhd = Bot.emojis.cache.get("711862298196705320").toString(); //4Head
     let zulul = Bot.emojis.cache.get("712738743395811401").toString(); //ZULUL
     let kekw = Bot.emojis.cache.get("700557146697367582").toString(); //KEKW
@@ -40,6 +88,7 @@ Bot.on('message', msg=> {
     let bear = Bot.emojis.cache.get("722749179931262997").toString(); //PedoBear
     let wk = Bot.emojis.cache.get("722754412795265106").toString(); //Wraith King GIF
     let pandit = Bot.emojis.cache.get("734405304179228792").toString();
+    let flushed = Bot.emojis.cache.get("738348662471524472").toString();
 
     let c = msg.content.toString();
 
@@ -50,27 +99,39 @@ Bot.on('message', msg=> {
             //8ball - Command under construction :D
             case 'code':
                 let code = new Discord.MessageAttachment('./assets/skeleton_code.js');
-                msg.channel.send(code);
+                msg.channel.send(code).then(r => console.log());
                 break;
             case 'bp':
                 msg.channel.send("Time to spend all my savings! " + pepeg + " " + knioY + " " + gaben + " Wise choice, my child!");
                 break;
             case 'doggie':
-                msg.channel.send("I'm a DOGGIE!");
+                msg.channel.send(`I'm a DOGGIE! ${doggie}`);
                 let dog = new Discord.MessageAttachment('./assets/doggie.ogg');
                 msg.channel.send(dog);
                 break;
             case 'mc':
-                msg.channel.send('-25$ a month '+pepelook +'\t'+ mc +' I ELP SIR!');
+                msg.channel.send('-25$ a month ' + pepelook + '\t' + mc + ' I ELP SIR!');
+                break;
+            case 'kektff':
+                msg.channel.send(kektff[9] + '👇')
+                msg.channel.send(kektff[0] + kektff[1] + kektff[2] + '\n'
+                    + kektff[3] + kektff[4] + kektff[5] + '\n'
+                    + kektff[6] + kektff[7] + kektff[8])
                 break;
             case 'kekega':
-                let kekega = new Discord.MessageAttachment('./assets/kekega_lord.png');
-                msg.channel.send(kekega);
+                msg.channel.send(gun[0] + kekega[9] + gun[1])
+                msg.channel.send(kekega[0] + kekega[1] + kekega[2] + '\n'
+                    + kekega[3] + kekega[4] + kekega[5] + '\n'
+                    + kekega[6] + kekega[7] + kekega[8])
                 break;
+            case 'bulldog':
+            case 'bdog':
+                msg.channel.send(fat[0] + '\n' + fat[1] + '\n' + fat[2])
+                break
             case 'kekw':
             case 'etu':
                 let etu = new Discord.MessageAttachment('./assets/kekw.ogg');
-                msg.channel.send('E TU! '+ kekw);
+                msg.channel.send('E TU! ' + kekw);
                 msg.channel.send(etu);
                 break;
             case 'choose':
@@ -89,7 +150,7 @@ Bot.on('message', msg=> {
                 //somehow make it ignore emojis
                 msg.channel.messages.fetch({limit: 2}).then(res => {
                     let s = res.last().toString();
-                    s = s.split("O").join(ome).split("o").join(omes);
+                    s = s.split("O").join(omegaluls[0]).split("o").join(omegaluls[1]);
                     msg.channel.send(s)
                 });
                 break;
@@ -129,16 +190,29 @@ Bot.on('message', msg=> {
                 if (!member) {
                     member = msg.member
                 }
+
+                let flag = true;
+                if (member.nickname === null)
+                    flag = false
+                let author = user.username + '#' + user.discriminator
+                if (flag)
+                    author.concat(' aka ' + member.nickname)
+
+                let roles = member.roles.cache.map(r => r);
+                let color = parseInt(roles[0].hexColor.replace('#', '0x'))
+                if (roles[0].name !== 'everyone')
+                    roles.pop()
+
                 var status = user.presence.status;
                 status = status.charAt(0).toUpperCase() + status.slice(1);
                 const info = new Discord.MessageEmbed()
                     .setTitle('USER INFORMATION')
-                    .setColor(0xe1e1e1)
+                    .setColor(color)
                     .setThumbnail(user.displayAvatarURL())
-                    .setAuthor(user.username + '#' + user.discriminator + ' aka ' + member.nickname)
-                    .addField('Status', 'Being a Bebeg in `' + status + ' Mode`')
+                    .setAuthor(author)
+                    .addField('Status', `Being a ${pepeg} in \`${status}\`  Mode`)
                     //display all roles
-                    .addField('Roles', member.roles.cache.map(r => `${r}`).join(' | '), true);
+                    .addField('Roles', roles.join(' | '), true);
                 msg.channel.send(info);
                 break;
             case 'yeezus':
@@ -149,20 +223,30 @@ Bot.on('message', msg=> {
                     'in art :pedo' + bear + bear + '\n' +
                     'in science: pedo' + bear + bear + '\n' +
                     'in geography: pedo' + bear + bear + '\n');
-                msg.channel.send('Just kidding, you kinda cute ngl \n   :flushed:\n:point_right::point_left:');
+                msg.channel.send('Just kidding, you kinda cute ngl \n');
+                msg.channel.send(flushed);
                 break;
             case 'bruoh':
                 msg.channel.send('Bruoh\'s cheerleader WK = insta win ' + wk);
                 break;
             case 'pandit':
             case '8ball':
-                var options = ["Feeling uncertain. Try Again.",
+                let options = ["Feeling uncertain. Try Again.",
                     "It seems like it.", "No.", "My prediction is in positive light.",
                     "Negative remarks on that thought.", "Please try again.", "Yes.",
                     "Most certainly.", "Heavily unlikely."];
                 let index = Math.floor(Math.random() * (options.length));
                 msg.channel.send(pandit);
                 msg.channel.send('`' + options[index] + '`');
+                break;
+            case 'orangey':
+                msg.channel.send(pepelook + '\t' + orange[9])
+                msg.channel.send(orange[0] + orange[1] + orange[2] + '\n'
+                    + orange[3] + orange[4] + orange[5] + '\n'
+                    + orange[6] + orange[7] + orange[8])
+            // case 'all':
+            //     for(let Emote of msg.guild.emojis.cache.array())
+            //         msg.channel.send(msg.guild.emojis.cache.get(Emote.id).toString());
         }
     }
 
