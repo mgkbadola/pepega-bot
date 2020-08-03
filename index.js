@@ -17,8 +17,8 @@ function contains(target, pattern) {
 }
 
 //ZULUL prompts
-let z = ['zulul', 'allo', 'vj emmie', 'supa', 'watafak', 'action is coming', 'gwa', 'know da', 'commandos', 'i prefer men',
-    'poopoo', 'captain alex', 'subaru', 'warrior', 'bruce u', 'uganda', 'ugandan bruce lee', 'wakaliwood', 'v1', 'vi von',
+let z = ['zulul', 'allo', 'vj emmie', 'supa', 'watafak', 'action is coming', 'gwa', 'know da', 'commando', 'i prefer men',
+    'poopoo', 'captain alex', 'subaru', 'warria', 'bruce u', 'uganda', 'ugandan bruce lee', 'wakaliwood', 'v1', 'vi von',
     'vi won', 'we won', 'vroom', 'expect the unexpectable', 'y are u gae'];
 
 const prefix = '!';
@@ -99,7 +99,7 @@ Bot.on('message', msg=> {
             //8ball - Command under construction :D
             case 'code':
                 let code = new Discord.MessageAttachment('./assets/skeleton_code.js');
-                msg.channel.send(code).then(r => console.log());
+                msg.channel.send(code);
                 break;
             case 'bp':
                 msg.channel.send("Time to spend all my savings! " + pepeg + " " + knioY + " " + gaben + " Wise choice, my child!");
@@ -127,6 +127,8 @@ Bot.on('message', msg=> {
             case 'bulldog':
             case 'bdog':
                 msg.channel.send(fat[0] + '\n' + fat[1] + '\n' + fat[2])
+                let heyguys = new Discord.MessageAttachment('./assets/heyguys.ogg');
+                msg.channel.send(heyguys)
                 break
             case 'kekw':
             case 'etu':
@@ -244,9 +246,9 @@ Bot.on('message', msg=> {
                 msg.channel.send(orange[0] + orange[1] + orange[2] + '\n'
                     + orange[3] + orange[4] + orange[5] + '\n'
                     + orange[6] + orange[7] + orange[8])
-            // case 'all':
-            //     for(let Emote of msg.guild.emojis.cache.array())
-            //         msg.channel.send(msg.guild.emojis.cache.get(Emote.id).toString());
+                break
+            case 'showall':
+                msg.channel.send(msg.guild.emojis.cache.map(e => `${e.toString()}`).join(""));
         }
     }
 
