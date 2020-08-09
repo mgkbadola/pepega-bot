@@ -97,6 +97,43 @@ Bot.on('message', msg=> {
         let t = msg.content.substring(prefix.length).split(" ");
         switch (t[0].toLowerCase()) {
             //8ball - Command under construction :D
+            case 'elp':
+            case 'help':
+                let command_array = ['!twitch', 'code', 'bp', 'doggie', 'mc', 'kekega', 'kektff',
+                    'kekega', 'bulldog/bdog', 'kekw/etu', 'choose/prefer/pick/choice',
+                    'ome', 'allo', 'myiq', 'leddit/reddit', 'yt/youtube', 'soundcloud',
+                    'pepega/pepege/pepeg', 'userinfo', 'yeezus', 'bruoh', 'orangey',
+                    'pandit/8ball', 'showall']
+                const commands = new Discord.MessageEmbed()
+                    .setTitle('Commands')
+                    .setColor(0x696969)
+                    .addField('List', `\`${command_array.join('\`, \`!')}\``, true)
+                msg.channel.send(commands)
+                break
+            case 'twitch':
+                let channel = msg.guild.name
+                let link = ""
+                switch (channel) {
+                    case 'Gush Panda\'s Baking Club':
+                        link = "https://www.twitch.tv/gush_panda";
+                        break
+                    case 'The BONE ZONE':
+                        link = "https://www.twitch.tv/devzz";
+                        break
+                    case 'PEPEGAS ASSEMBLE':
+                        link = "https://www.twitch.tv/immortalyse";
+                        break
+                    case 'Emote yoinking place':
+                        link = "https://www.twitch.tv/xshampoo_";
+                        break
+                    case 'F8\'s KINGDOM':
+                        link = "https://www.twitch.tv/f8_dota";
+                        break
+                    default:
+                        link = "https://www.twitch.tv/topachez";
+                }
+                msg.channel.send(link)
+                break
             case 'code':
                 let code = new Discord.MessageAttachment('./assets/skeleton_code.js');
                 msg.channel.send(code);
