@@ -99,7 +99,7 @@ Bot.on('message', msg=> {
             //8ball - Command under construction :D
             case 'elp':
             case 'help':
-                let command_array = ['!twitch', 'code', 'bp', 'doggie', 'mc', 'kekega', 'kektff',
+                let command_array = ['!twitch', 'code', 'bp', 'doggie', 'mc', 'kektff',
                     'kekega', 'bulldog/bdog', 'kekw/etu', 'choose/prefer/pick/choice',
                     'ome', 'allo', 'myiq', 'leddit/reddit', 'yt/youtube', 'soundcloud',
                     'pepega/pepege/pepeg', 'userinfo', 'yeezus', 'bruoh', 'orangey',
