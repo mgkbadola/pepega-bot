@@ -104,6 +104,7 @@ Bot.on('message', msg=> {
                     'ome', 'allo', 'myiq', 'leddit/reddit', 'yt/youtube', 'soundcloud',
                     'pepega/pepege/pepeg', 'userinfo', 'yeezus', 'bruoh', 'orangey',
                     'pandit/8ball', 'showall']
+                command_array.sort()
                 const commands = new Discord.MessageEmbed()
                     .setTitle('Commands')
                     .setColor(0x696969)
@@ -286,6 +287,27 @@ Bot.on('message', msg=> {
                 break
             case 'showall':
                 msg.channel.send(msg.guild.emojis.cache.map(e => `${e.toString()}`).join(""));
+                break
+            case 'tank':
+                if (t.length === 1) {
+                    msg.channel.send(`
+.......................██▄▄▄▄▄▄▄
+........▂▄▅█████████▅▄▃▂
+........ ████████████████████
+........◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤`)
+                } else if (t.length === 2) {
+                    msg.channel.send(`
+.......................█ ${t[1]} █▄▄▄▄▄▄▄ ➢➣➢➣➢➣
+........▂▄▅█████████▅▄▃▂
+........ ████████████████████
+........◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤`)
+                } else if (t.length === 3) {
+                    msg.channel.send(`
+.......................█ ${t[1]} █▄▄▄▄▄▄▄ ➢➣➢➣➢➣ ${t[2]}
+........▂▄▅█████████▅▄▃▂
+........ ████████████████████
+........◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤`)
+                }
         }
     }
 
