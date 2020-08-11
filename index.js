@@ -104,12 +104,21 @@ Bot.on('message', msg=> {
                     'ome', 'allo', 'myiq', 'leddit/reddit', 'yt/youtube', 'soundcloud',
                     'pepega/pepege/pepeg', 'userinfo', 'yeezus', 'bruoh', 'orangey',
                     'pandit/8ball', 'showall']
-                command_array.sort()
+                if(msg.guild.name === 'Gush Panda\'s Baking Club')
+                    command_array.push('starter/sourdough')
+                command_array = command_array.sort()
                 const commands = new Discord.MessageEmbed()
                     .setTitle('Commands')
                     .setColor(0x696969)
                     .addField('List', `\`${command_array.join('\`, \`!')}\``, true)
                 msg.channel.send(commands)
+                break
+            case 'sourdough':
+            case 'starter':
+                if(msg.guild.name === 'Gush Panda\'s Baking Club')
+                    msg.member.send("All of my followers (in the future Subscribers) will get access to my " +
+                        "sourdough-recipes channel and more importantly, an exclusive help and guidance directly from " +
+                        "me in the `#starter-making-help` channel: <https://discord.gg/Kzb4eug>.\n"+"~**Gush Panda**")
                 break
             case 'twitch':
                 let channel = msg.guild.name
