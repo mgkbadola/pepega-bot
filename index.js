@@ -103,7 +103,7 @@ Bot.on('message', msg=> {
                     'kekega', 'bulldog/bdog', 'kekw/etu', 'choose/prefer/pick/choice',
                     'ome', 'allo', 'myiq', 'leddit/reddit', 'yt/youtube', 'soundcloud',
                     'pepega/pepege/pepeg', 'userinfo', 'yeezus', 'bruoh', 'orangey',
-                    'pandit/8ball', 'showall']
+                    'pandit/8ball', 'showall', 'shadap']
                 if(msg.guild.name === 'Gush Panda\'s Baking Club')
                     command_array.push('starter/sourdough')
                 command_array = command_array.sort()
@@ -143,6 +143,10 @@ Bot.on('message', msg=> {
                         link = "https://www.twitch.tv/topachez";
                 }
                 msg.channel.send(link)
+                break
+            case 'shadap':
+                let shadap = new Discord.MessageAttachment('./assets/shadap.wav')
+                msg.channel.send(shadap)
                 break
             case 'code':
                 let code = new Discord.MessageAttachment('./assets/skeleton_code.js');
@@ -199,14 +203,29 @@ Bot.on('message', msg=> {
                 //somehow make it ignore emojis
                 msg.channel.messages.fetch({limit: 2}).then(res => {
                     let s = res.last().toString();
+                    // let array1 = s.match(/<[:a-zA-Z:0-9]+>/gm)
+                    // let array2 = s.split(/<[:a-zA-Z:0-9]+>/gm)
+                    // console.log(array1)
+                    // console.log(array2)
+                    // for(str in array2){
+                    //     str.split("O").join(omegaluls[0]).split("o").join(omegaluls[1])
+                    // }
+                    // for(let i=0; i<array1.length; i++){
+                    //     array2[i].concat(array1[i])
+                    // }
+                    // s = array2.join("")
                     s = s.split("O").join(omegaluls[0]).split("o").join(omegaluls[1]);
                     msg.channel.send(s)
                 });
                 break;
+            // case 'remindme':
+            //     var d = new Date()
+            //     msg.channel.send
+            //     break
             case 'allo':
                 let allo = new Discord.MessageAttachment('./assets/allo.ogg');
                 msg.react('712738743395811401');
-                msg.channel.send('ALLO! '+ zulul);
+                msg.channel.send('ALLO! ' + zulul);
                 msg.channel.send(allo);
                 break;
             case 'myiq':
