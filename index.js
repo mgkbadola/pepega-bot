@@ -4,6 +4,15 @@ const Bot = new Discord.Client();
 
 Bot.once("ready", () => {
   console.log("PepegaBot is now online.");
+  // Set the client user's activity
+  Bot.user
+      .setActivity("Dough videos :Kreygasm: ", {
+        type: "WATCHING",
+      })
+      .then((presence) =>
+          console.log(`Activity set to ${presence.activities[0].name}`)
+      )
+      .catch(console.error);
 });
 const token = "NzEyMTQ5MDM3NTcwMDY0NDQ0.XsOTlQ.RA0CyyZGCU-dRyuuu_C9GjVKd6w";
 
@@ -47,12 +56,16 @@ let z = [
 
 const prefix = "!";
 Bot.on("message", (msg) => {
-  if (
-      msg.channel.type !== "text" ||
-      msg.author.bot ||
-      !msg.content.startsWith("!")
-  )
-    return;
+  if (msg.mentions.users.size === 0) {
+    if (
+        msg.channel.type !== "text" ||
+        msg.author.bot ||
+        !msg.content.startsWith("!")
+    ) {
+      return;
+    }
+  }
+
   //emotes
   let orange = [];
   orange[0] = Bot.emojis.cache.get("730338381086588928").toString();
@@ -122,6 +135,34 @@ Bot.on("message", (msg) => {
   let c = msg.content.toString();
 
   //commands
+  if (msg.mentions.users.size > 0) {
+    for (let new1 of msg.mentions.users) {
+      let x1 = msg.mentions.members.first();
+      let x2 = new1[1];
+      switch (x1.presence.status) {
+        case "online":
+          if (msg.author === Bot.user) return;
+          msg.react("🟢");
+          if (msg.author === Bot.user) return;
+          break;
+        case "idle":
+          if (msg.author === Bot.user) return;
+          msg.channel.send(x2.toString() + " is sleeping 💤");
+          msg.react("🌙");
+          break;
+        case "dnd":
+          if (msg.author === Bot.user) return;
+          msg.channel.send("Do not disturb " + x2.toString() + " right now!");
+          msg.react("⛔");
+          break;
+        case "offline":
+          if (msg.author === Bot.user) return;
+          msg.channel.send("User " + x2.toString() + "is offline right now");
+          msg.react("🔴");
+          break;
+      }
+    }
+  }
   if (c[0] === "!") {
     let t = msg.content.substring(prefix.length).split(" ");
     switch (t[0].toLowerCase()) {
@@ -307,7 +348,7 @@ Bot.on("message", (msg) => {
         //     break
       case "allo":
         let allo = new Discord.MessageAttachment("./assets/allo.ogg");
-        msg.react("712738743395811401");
+        // msg.react("712738743395811401");
         msg.channel.send("ALLO! " + zulul);
         msg.channel.send(allo);
         break;
