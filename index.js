@@ -5,14 +5,14 @@ const Bot = new Discord.Client();
 Bot.once("ready", () => {
   console.log("PepegaBot is now online.");
   // Set the client user's activity
-  Bot.user
-      .setActivity("Dough videos :Kreygasm: ", {
-        type: "WATCHING",
-      })
-      .then((presence) =>
-          console.log(`Activity set to ${presence.activities[0].name}`)
-      )
-      .catch(console.error);
+  // Bot.user
+  //     .setActivity(`Dough videos`, {
+  //       type: "WATCHING",
+  //     })
+  //     .then((presence) =>
+  //         console.log(`Activity set to ${presence.activities[0].name}`)
+  //     )
+  //     .catch(console.error);
 });
 const token = "NzEyMTQ5MDM3NTcwMDY0NDQ0.XsOTlQ.RA0CyyZGCU-dRyuuu_C9GjVKd6w";
 
@@ -38,6 +38,7 @@ let z = [
   "commando",
   "i prefer men",
   "poopoo",
+  "poo poo",
   "captain alex",
   "subaru",
   "warria",
@@ -55,16 +56,7 @@ let z = [
 ];
 
 const prefix = "!";
-Bot.on("message", (msg) => {
-  if (msg.mentions.users.size === 0) {
-    if (
-        msg.channel.type !== "text" ||
-        msg.author.bot ||
-        !msg.content.startsWith("!")
-    ) {
-      return;
-    }
-  }
+Bot.on("message", msg => {
 
   //emotes
   let orange = [];
@@ -121,7 +113,7 @@ Bot.on("message", (msg) => {
   let kekw = Bot.emojis.cache.get("700557146697367582").toString(); //KEKW
   let pepelook = Bot.emojis.cache.get("713340037713887272").toString(); //pepeLook
   let mc = Bot.emojis.cache.get("713340037043060766").toString(); //Mega Subscriber Pepeg
-  let pog = Bot.emojis.cache.get("712180552408760351").toString(); //Pog
+  //let pog = Bot.emojis.cache.get("712180552408760351").toString(); //Pog
   let ppscoots = Bot.emojis.cache.get("713344557575700530").toString(); //Pepescoots
   let doggie = Bot.emojis.cache.get("713754840865701958").toString(); //Dogege
   let knioY = Bot.emojis.cache.get("714824198299582486").toString(); //Yoink
@@ -129,8 +121,10 @@ Bot.on("message", (msg) => {
   let gaben = Bot.emojis.cache.get("714826598355828736").toString(); //GabeN
   let bear = Bot.emojis.cache.get("722749179931262997").toString(); //PedoBear
   let wk = Bot.emojis.cache.get("722754412795265106").toString(); //Wraith King GIF
-  let pandit = Bot.emojis.cache.get("734405304179228792").toString();
-  let flushed = Bot.emojis.cache.get("738348662471524472").toString();
+  let pandit = Bot.emojis.cache.get("734405304179228792").toString();//Panditge
+  let flushed = Bot.emojis.cache.get("738348662471524472").toString();//Awkward_Flushed
+  //let kreygasm = Bot.emojis.cache.get("743161208022237234").toString()
+  let gottem = Bot.emojis.cache.get("746646238354735164").toString()
 
   let c = msg.content.toString();
 
@@ -140,24 +134,16 @@ Bot.on("message", (msg) => {
       let x1 = msg.mentions.members.first();
       let x2 = new1[1];
       switch (x1.presence.status) {
-        case "online":
-          if (msg.author === Bot.user) return;
-          msg.react("🟢");
-          if (msg.author === Bot.user) return;
-          break;
         case "idle":
           if (msg.author === Bot.user) return;
-          msg.channel.send(x2.toString() + " is sleeping 💤");
           msg.react("🌙");
           break;
         case "dnd":
           if (msg.author === Bot.user) return;
-          msg.channel.send("Do not disturb " + x2.toString() + " right now!");
           msg.react("⛔");
           break;
         case "offline":
           if (msg.author === Bot.user) return;
-          msg.channel.send("User " + x2.toString() + "is offline right now");
           msg.react("🔴");
           break;
       }
@@ -166,7 +152,6 @@ Bot.on("message", (msg) => {
   if (c[0] === "!") {
     let t = msg.content.substring(prefix.length).split(" ");
     switch (t[0].toLowerCase()) {
-        //8ball - Command under construction :D
       case "elp":
       case "help":
         let command_array = [
@@ -473,9 +458,18 @@ Bot.on("message", (msg) => {
         );
         break;
       case "showall":
-        msg.channel.send(
-            msg.guild.emojis.cache.map((e) => `${e.toString()}`).join("")
-        );
+        let count = 0
+        let emotearray = msg.guild.emojis.cache.map(e => `${e.toString()}`)
+        let tempstack = []
+        for (let i = 0; i < emotearray.length; i++) {
+          count = count + emotearray[i].length
+          if (count >= 2000 || i === emotearray.length - 1) {
+            msg.channel.send(tempstack.join(""));
+            tempstack = []
+            count = emotearray[i].length
+          }
+          tempstack.push(emotearray[i])
+        }
         break;
       case "tank":
         if (t.length === 1) {
@@ -502,11 +496,13 @@ Bot.on("message", (msg) => {
 
   //reactions triggers
   else {
-    // if (contains(c.toLowerCase(), z)) msg.react("712738743395811401");
+    if (contains(c.toLowerCase(), z))
+      msg.react("712738743395811401");
+
     if (c.includes("more like")) {
-      msg.react("712180552408760351");
+      msg.react("746646238354735164");
       msg.react("713344557575700530");
-      msg.channel.send(`React to tell whether it was ${pog} or ${ppscoots}`);
+      msg.channel.send(`React to tell whether it was ${gottem} or ${ppscoots}`);
     }
   }
 });
