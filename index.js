@@ -130,10 +130,8 @@ Bot.on("message", msg => {
 
   //commands
   if (msg.mentions.users.size > 0) {
-    for (let new1 of msg.mentions.users) {
-      let x1 = msg.mentions.members.first();
-      let x2 = new1[1];
-      switch (x1.presence.status) {
+    for (let new1 of msg.mentions.members.values()) {
+      switch (new1.presence.status) {
         case "idle":
           if (msg.author === Bot.user) return;
           msg.react("🌙");
@@ -426,20 +424,31 @@ Bot.on("message", msg => {
         break;
       case "pandit":
       case "8ball":
-        let options = [
-          "Feeling uncertain. Try Again.",
-          "It seems like it.",
-          "No.",
-          "My prediction is in positive light.",
-          "Negative remarks on that thought.",
-          "Please try again.",
-          "Yes.",
-          "Most certainly.",
-          "Heavily unlikely.",
-        ];
-        let index = Math.floor(Math.random() * options.length);
         msg.channel.send(pandit);
-        msg.channel.send("`" + options[index] + "`");
+        if (t.length === 1)
+          msg.channel.send(`Predict what?`)
+        else {
+          let options = [
+            "Feeling uncertain. Try Again.",
+            "It seems like it.",
+            "No.",
+            "My prediction is in positive light.",
+            "Negative remarks on that thought.",
+            "Please try again.",
+            "Yes.",
+            "Most certainly.",
+            "My sources say no.",
+            "Affirmative.",
+            "Negative.",
+            "Yep.",
+            "Nope.",
+            "Can't decide at the moment.",
+            "My brain is lagging, try to ask again.",
+            "Heavily unlikely.",
+          ];
+          let index = Math.floor(Math.random() * options.length);
+          msg.channel.send("`" + options[index] + "`");
+        }
         break;
       case "orangey":
         msg.channel.send(pepelook + "\t" + orange[9]);
