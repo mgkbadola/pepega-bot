@@ -1,7 +1,7 @@
 //pre-login
 const Discord = require("discord.js");
 const Bot = new Discord.Client();
-
+const fun = require("./functions")
 Bot.once("ready", () => {
   console.log("PepegaBot is now online.");
   // Set the client user's activity
@@ -162,7 +162,7 @@ Bot.on("message", msg => {
           "kekega",
           "bulldog/bdog",
           "kekw/etu",
-          "choose/prefer/pick/choice",
+          "choose/prefer",
           "ome",
           "allo",
           "myiq",
@@ -198,47 +198,20 @@ Bot.on("message", msg => {
           );
         break;
       case "twitch":
-        let channel = msg.guild.name;
-        let link = "";
-        switch (channel) {
-          case "Gush Panda's Baking Club":
-            link = "https://www.twitch.tv/gush_panda";
-            break;
-          case "The BONE ZONE":
-            link = "https://www.twitch.tv/devzz";
-            break;
-          case "PEPEGAS ASSEMBLE":
-            link = "https://www.twitch.tv/immortalyse";
-            break;
-          case "Emote yoinking place":
-            link = "https://www.twitch.tv/xshampoo_";
-            break;
-          case "F8's KINGDOM":
-            link = "https://www.twitch.tv/f8_dota";
-            break;
-          default:
-            link = "https://www.twitch.tv/topachez";
-        }
-        msg.channel.send(link);
+        msg.channel.send(fun.twitch(msg.guild.name))
+            .then(() => console.log("twitch command executed!"))
         break;
       case "shadap":
         let shadap = new Discord.MessageAttachment("./assets/shadap.wav");
         msg.channel.send(shadap);
         break;
-      case "code":
-        let code = new Discord.MessageAttachment("./assets/skeleton_code.js");
-        msg.channel.send(code);
-        break;
+        // case "code":
+        //   let code = new Discord.MessageAttachment("./assets/skeleton_code.js");
+        //   msg.channel.send(code);
+        //   break;
       case "bp":
-        msg.channel.send(
-            "Time to spend all my savings! " +
-            pepeg +
-            " " +
-            knioY +
-            " " +
-            gaben +
-            " Wise choice, my child!"
-        );
+        msg.channel.send(fun.battlepass(pepeg, knioY, gaben))
+            .then(() => console.log("bp command executed!"))
         break;
       case "doggie":
         msg.channel.send(`I'm a DOGGIE! ${doggie}`);
@@ -246,41 +219,20 @@ Bot.on("message", msg => {
         msg.channel.send(dog);
         break;
       case "mc":
-        msg.channel.send(
-            "-25$ a month " + pepelook + "\t" + mc + " I ELP SIR!"
-        );
+        msg.channel.send(fun.megasub(pepelook, mc))
+            .then(() => console.log("mc command executed!"));
         break;
       case "kektff":
-        msg.channel.send(kektff[9] + "👇");
-        msg.channel.send(
-            kektff[0] +
-            kektff[1] +
-            kektff[2] +
-            "\n" +
-            kektff[3] +
-            kektff[4] +
-            kektff[5] +
-            "\n" +
-            kektff[6] +
-            kektff[7] +
-            kektff[8]
-        );
+        msg.channel.send(kektff[9] + "👇")
+            .then(() => console.log("small kektff"));
+        msg.channel.send(fun.bigtff(kektff))
+            .then(() => console.log("big kektff, all executed!"));
         break;
       case "kekega":
-        msg.channel.send(gun[0] + kekega[9] + gun[1]);
-        msg.channel.send(
-            kekega[0] +
-            kekega[1] +
-            kekega[2] +
-            "\n" +
-            kekega[3] +
-            kekega[4] +
-            kekega[5] +
-            "\n" +
-            kekega[6] +
-            kekega[7] +
-            kekega[8]
-        );
+        msg.channel.send(gun[0] + kekega[9] + gun[1])
+            .then(() => console.log("kekega"));
+        msg.channel.send(fun.kekega_lord(kekega))
+            .then(() => console.log("kekega lord, all executed!"));
         break;
       case "bulldog":
       case "bdog":
@@ -296,15 +248,8 @@ Bot.on("message", msg => {
         break;
       case "choose":
       case "prefer":
-      case "pick":
-      case "choice":
-        let n = t.slice(1, t.length).length;
-        if (n <= 1) {
-          msg.channel.send("Give options you dumb ~~bitch~~ person " + forhd);
-        } else {
-          let i = Math.floor(Math.random() * n + 1);
-          msg.channel.send("I prefer `" + `${t[i]}` + "`!");
-        }
+        msg.channel.send(fun.choose(t, forhd))
+            .then(() => console.log("choose/prefer command executed!"));
         break;
       case "ome":
         //somehow make it ignore emojis
@@ -325,10 +270,6 @@ Bot.on("message", msg => {
           msg.channel.send(s);
         });
         break;
-        // case 'remindme':
-        //     var d = new Date()
-        //     msg.channel.send
-        //     break
       case "allo":
         let allo = new Discord.MessageAttachment("./assets/allo.ogg");
         // msg.react("712738743395811401");
@@ -336,21 +277,22 @@ Bot.on("message", msg => {
         msg.channel.send(allo);
         break;
       case "myiq":
-        let r = Math.floor(Math.random() * 200) + 1;
-        msg.reply("Your IQ is " + r + "!");
+        msg.reply(fun.myiq())
+            .then(() => console.log("myiq command executed!"));
         break;
       case "leddit":
       case "reddit":
-        msg.channel.send("https://www.reddit.com/user/topachez");
+        msg.channel.send("https://www.reddit.com/user/topachez")
+            .then(() => console.log("reddit command executed!"));
         break;
       case "youtube":
       case "yt":
-        msg.channel.send(
-            "https://www.youtube.com/channel/UC7Zqy9v4kENk5N5hBfo3Bog"
-        );
+        msg.channel.send("https://www.youtube.com/channel/UC7Zqy9v4kENk5N5hBfo3Bog")
+            .then(() => console.log("yt command executed!"));
         break;
       case "soundcloud":
-        msg.channel.send("https://soundcloud.com/topachez");
+        msg.channel.send("https://soundcloud.com/topachez")
+            .then(() => console.log("soundcloud command executed!"));
         break;
       case "pepeg":
       case "pepega":
@@ -363,17 +305,19 @@ Bot.on("message", msg => {
       case "userinfo":
         let user = msg.mentions.users.first();
         let member = msg.mentions.members.first();
-        if (!user) {
+        if (!user)
           user = msg.author;
-        }
-        if (!member) {
+
+        if (!member)
           member = msg.member;
-        }
 
         let flag = true;
-        if (member.nickname === null) flag = false;
+        if (member.nickname === null)
+          flag = false;
+
         let author = user.username + "#" + user.discriminator;
-        if (flag) author.concat(" aka " + member.nickname);
+        if (flag)
+          author.concat(" aka " + member.nickname);
 
         let roles = member.roles.cache.map((r) => r);
         let color = parseInt(roles[0].hexColor.replace("#", "0x"));
@@ -389,35 +333,14 @@ Bot.on("message", msg => {
             .addField("Status", `Being a ${pepeg} in \`${status}\`  Mode`)
             //display all roles
             .addField("Roles", roles.join(" | "), true);
-        msg.channel.send(info);
+        msg.channel.send(info)
+            .then(() => console.log("userinfo command executed!"));
         break;
       case "yeezus":
-        msg.channel.send(
-            "who is yeezus?:rolling_eyes::face_with_hand_over_mouth::thinking::yawning_face:\n" +
-            "\n" +
-            "in math: pedo" +
-            bear +
-            bear +
-            "\n" +
-            "in history: pedo" +
-            bear +
-            bear +
-            "\n" +
-            "in art :pedo" +
-            bear +
-            bear +
-            "\n" +
-            "in science: pedo" +
-            bear +
-            bear +
-            "\n" +
-            "in geography: pedo" +
-            bear +
-            bear +
-            "\n"
-        );
+        msg.channel.send(fun.yeezus(bear))
+            .then(() => console.log("first part"));
         msg.channel.send("Just kidding, you kinda cute ngl \n");
-        msg.channel.send(flushed);
+        msg.channel.send(flushed).then(() => console.log("yeezus command executed!"));
         break;
       case "bruoh":
         msg.channel.send("Bruoh's cheerleader WK = insta win " + wk);
