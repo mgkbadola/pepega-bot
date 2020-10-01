@@ -154,7 +154,6 @@ Bot.on("message", msg => {
       case "help":
         let command_array = [
           "!twitch",
-          "code",
           "bp",
           "doggie",
           "mc",
