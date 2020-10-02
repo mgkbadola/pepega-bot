@@ -60,27 +60,27 @@ Bot.on("message", msg => {
 
   //emotes
   let orange = [];
-  orange[0] = Bot.emojis.cache.get("730338381086588928").toString();
-  orange[1] = Bot.emojis.cache.get("730338380851839056").toString();
-  orange[2] = Bot.emojis.cache.get("730338381204291637").toString();
-  orange[3] = Bot.emojis.cache.get("730338380814090331").toString();
-  orange[4] = Bot.emojis.cache.get("730338380226756640").toString();
-  orange[5] = Bot.emojis.cache.get("730338380709232672").toString();
-  orange[6] = Bot.emojis.cache.get("730338380700844095").toString();
-  orange[7] = Bot.emojis.cache.get("730338381044645918").toString();
-  orange[8] = Bot.emojis.cache.get("730338380789055530").toString();
+  orange[0] = Bot.emojis.cache.get("761478419933691915").toString();
+  orange[1] = Bot.emojis.cache.get("761478488736792586").toString();
+  orange[2] = Bot.emojis.cache.get("761478512166567968").toString();
+  orange[3] = Bot.emojis.cache.get("761478551148953620").toString();
+  orange[4] = Bot.emojis.cache.get("761478570773315634").toString();
+  orange[5] = Bot.emojis.cache.get("761478587076444162").toString();
+  orange[6] = Bot.emojis.cache.get("761478612670480435").toString();
+  orange[7] = Bot.emojis.cache.get("761478640499425300").toString();
+  orange[8] = Bot.emojis.cache.get("761478657004011551").toString();
   orange[9] = Bot.emojis.cache.get("726460408441077810").toString();
 
   let kekega = [];
-  kekega[0] = Bot.emojis.cache.get("729533827768254557").toString();
-  kekega[1] = Bot.emojis.cache.get("729533828007198763").toString();
-  kekega[2] = Bot.emojis.cache.get("729533827747151874").toString();
-  kekega[3] = Bot.emojis.cache.get("729533827688431638").toString();
-  kekega[4] = Bot.emojis.cache.get("729533827701014599").toString();
-  kekega[5] = Bot.emojis.cache.get("729533827596419170").toString();
-  kekega[6] = Bot.emojis.cache.get("729533828103667752").toString();
-  kekega[7] = Bot.emojis.cache.get("729533828171038830").toString();
-  kekega[8] = Bot.emojis.cache.get("729533827810328600").toString();
+  kekega[0] = Bot.emojis.cache.get("761479705920405514").toString();
+  kekega[1] = Bot.emojis.cache.get("761479725297958922").toString();
+  kekega[2] = Bot.emojis.cache.get("761479750819774466").toString();
+  kekega[3] = Bot.emojis.cache.get("761479770214236161").toString();
+  kekega[4] = Bot.emojis.cache.get("761479795275071488").toString();
+  kekega[5] = Bot.emojis.cache.get("761479814577520661").toString();
+  kekega[6] = Bot.emojis.cache.get("761479833892683777").toString();
+  kekega[7] = Bot.emojis.cache.get("761479858936479744").toString();
+  kekega[8] = Bot.emojis.cache.get("761479882999857152").toString();
   kekega[9] = Bot.emojis.cache.get("718512084157202472").toString();
 
   let kektff = [];
