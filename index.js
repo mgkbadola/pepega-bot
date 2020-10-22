@@ -71,7 +71,7 @@ Bot.on("message", msg => {
   orange[8] = Bot.emojis.cache.get("761478657004011551").toString();
   orange[9] = Bot.emojis.cache.get("726460408441077810").toString();
 
-  let kekega = [];
+  /*let kekega = [];
   kekega[0] = Bot.emojis.cache.get("761479705920405514").toString();
   kekega[1] = Bot.emojis.cache.get("761479725297958922").toString();
   kekega[2] = Bot.emojis.cache.get("761479750819774466").toString();
@@ -81,9 +81,9 @@ Bot.on("message", msg => {
   kekega[6] = Bot.emojis.cache.get("761479833892683777").toString();
   kekega[7] = Bot.emojis.cache.get("761479858936479744").toString();
   kekega[8] = Bot.emojis.cache.get("761479882999857152").toString();
-  kekega[9] = Bot.emojis.cache.get("718512084157202472").toString();
+  kekega[9] = Bot.emojis.cache.get("718512084157202472").toString();*/
 
-  let kektff = [];
+  /*let kektff = [];
   kektff[0] = Bot.emojis.cache.get("731156841819537439").toString();
   kektff[1] = Bot.emojis.cache.get("731156841886646373").toString();
   kektff[2] = Bot.emojis.cache.get("731156841932914740").toString();
@@ -93,7 +93,7 @@ Bot.on("message", msg => {
   kektff[6] = Bot.emojis.cache.get("731156844214747246").toString();
   kektff[7] = Bot.emojis.cache.get("731156842151149619").toString();
   kektff[8] = Bot.emojis.cache.get("731156842411065434").toString();
-  kektff[9] = Bot.emojis.cache.get("738773225999171706").toString();
+  kektff[9] = Bot.emojis.cache.get("738773225999171706").toString();*/
 
   let gun = [];
   gun[0] = Bot.emojis.cache.get("738769444523737207").toString();
@@ -154,6 +154,7 @@ Bot.on("message", msg => {
       case "help":
         let command_array = [
           "!twitch",
+          "avatar",
           "bp",
           "doggie",
           "mc",
@@ -402,6 +403,12 @@ Bot.on("message", msg => {
           tempstack.push(emotearray[i])
         }
         break;
+      case 'avatar':
+        let uzer = msg.mentions.users.first();
+        if(!uzer)
+        uzer = msg.author
+        msg.channel.send(uzer.displayAvatarURL())
+        break
       case "tank":
         if (t.length === 1) {
           msg.channel.send(`
