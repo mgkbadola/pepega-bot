@@ -53,11 +53,29 @@ let z = [
   "vroom",
   "expect the unexpectable",
   "y are u gae",
+  "🇺🇬"
 ];
 
 const prefix = "!";
 Bot.on("message", msg => {
-
+  /*if (msg.mentions.users.size > 0) {
+    for (let new1 of msg.mentions.members.values()) {
+      switch (new1.presence.status) {
+        case "idle":
+          if (msg.author === Bot.user) return;
+          msg.react("🌙");
+          break;
+        case "dnd":
+          if (msg.author === Bot.user) return;
+          msg.react("⛔");
+          break;
+        case "offline":
+          if (msg.author === Bot.user) return;
+          msg.react("🔴");
+          break;
+      }
+    }
+  }*/
   //emotes
   let orange = [];
   orange[0] = Bot.emojis.cache.get("761478419933691915").toString();
@@ -129,24 +147,6 @@ Bot.on("message", msg => {
   let c = msg.content.toString();
 
   //commands
-  if (msg.mentions.users.size > 0) {
-    for (let new1 of msg.mentions.members.values()) {
-      switch (new1.presence.status) {
-        case "idle":
-          if (msg.author === Bot.user) return;
-          msg.react("🌙");
-          break;
-        case "dnd":
-          if (msg.author === Bot.user) return;
-          msg.react("⛔");
-          break;
-        case "offline":
-          if (msg.author === Bot.user) return;
-          msg.react("🔴");
-          break;
-      }
-    }
-  }
   if (c[0] === "!") {
     let t = msg.content.substring(prefix.length).split(" ");
     switch (t[0].toLowerCase()) {
