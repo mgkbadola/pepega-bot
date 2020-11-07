@@ -43,6 +43,11 @@ module.exports = {
             kekega[3] + kekega[4] + kekega[5] + "\n" +
             kekega[6] + kekega[7] + kekega[8])
     },
+    orangey: function (orange){
+        return (orange[0] + orange[1] + orange[2] + "\n" +
+            orange[3] + orange[4] + orange[5] + "\n" +
+            orange[6] + orange[7] + orange[8])
+    },
     choose: function (options, fourhead) {
         let n = options.slice(1, options.length).length;
         if (n <= 1) {

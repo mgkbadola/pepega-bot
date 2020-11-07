@@ -370,19 +370,7 @@ Bot.on("message", msg => {
         break;
       case "orangey":
         msg.channel.send(pepelook + "\t" + orange[9]);
-        msg.channel.send(
-            orange[0] +
-            orange[1] +
-            orange[2] +
-            "\n" +
-            orange[3] +
-            orange[4] +
-            orange[5] +
-            "\n" +
-            orange[6] +
-            orange[7] +
-            orange[8]
-        );
+        msg.channel.send(fun.orangey(orange));
         break;
       case "showall":
         let count = 0
@@ -424,7 +412,13 @@ Bot.on("message", msg => {
 ........ ████████████████████
 ........◥⊙▲⊙▲⊙▲⊙▲⊙▲⊙▲⊙◤`);
         }
+        break
+        /*case "roulette":
+          const bullet = Math.floor(Math.random() * 6) + 1
+          const auth = msg.author
+          msg.channel.send('Pick a number from `1 2 3 4 5 6`')*/
     }
+
   }
 
   //reactions triggers
