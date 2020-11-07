@@ -14,7 +14,7 @@ Bot.once("ready", () => {
   //     )
   //     .catch(console.error);
 });
-const token = "NzEyMTQ5MDM3NTcwMDY0NDQ0.XsOTlQ.RA0CyyZGCU-dRyuuu_C9GjVKd6w";
+const token = process.env.BOT_TOKEN;
 
 //check whether string contains these words
 function contains(target, pattern) {
@@ -76,6 +76,7 @@ Bot.on("message", msg => {
       }
     }
   }*/
+
   //emotes
   let orange = [];
   orange[0] = Bot.emojis.cache.get("761478419933691915").toString();
@@ -89,29 +90,29 @@ Bot.on("message", msg => {
   orange[8] = Bot.emojis.cache.get("761478657004011551").toString();
   orange[9] = Bot.emojis.cache.get("726460408441077810").toString();
 
-  /*let kekega = [];
-  kekega[0] = Bot.emojis.cache.get("761479705920405514").toString();
-  kekega[1] = Bot.emojis.cache.get("761479725297958922").toString();
-  kekega[2] = Bot.emojis.cache.get("761479750819774466").toString();
-  kekega[3] = Bot.emojis.cache.get("761479770214236161").toString();
-  kekega[4] = Bot.emojis.cache.get("761479795275071488").toString();
-  kekega[5] = Bot.emojis.cache.get("761479814577520661").toString();
-  kekega[6] = Bot.emojis.cache.get("761479833892683777").toString();
-  kekega[7] = Bot.emojis.cache.get("761479858936479744").toString();
-  kekega[8] = Bot.emojis.cache.get("761479882999857152").toString();
-  kekega[9] = Bot.emojis.cache.get("718512084157202472").toString();*/
+  let kekega = [];
+  kekega[0] = Bot.emojis.cache.get("774228320132268052").toString();
+  kekega[1] = Bot.emojis.cache.get("774228320430325791").toString();
+  kekega[2] = Bot.emojis.cache.get("774228320229392404").toString();
+  kekega[3] = Bot.emojis.cache.get("774228319993462794").toString();
+  kekega[4] = Bot.emojis.cache.get("774228320018497566").toString();
+  kekega[5] = Bot.emojis.cache.get("774228320236994580").toString();
+  kekega[6] = Bot.emojis.cache.get("774228319922290709").toString();
+  kekega[7] = Bot.emojis.cache.get("774228320630866000").toString();
+  kekega[8] = Bot.emojis.cache.get("774228320044056577").toString();
+  kekega[9] = Bot.emojis.cache.get("718512084157202472").toString();
 
-  /*let kektff = [];
-  kektff[0] = Bot.emojis.cache.get("731156841819537439").toString();
-  kektff[1] = Bot.emojis.cache.get("731156841886646373").toString();
-  kektff[2] = Bot.emojis.cache.get("731156841932914740").toString();
-  kektff[3] = Bot.emojis.cache.get("731156841840771165").toString();
-  kektff[4] = Bot.emojis.cache.get("731156842222321734").toString();
-  kektff[5] = Bot.emojis.cache.get("731156842302013490").toString();
-  kektff[6] = Bot.emojis.cache.get("731156844214747246").toString();
-  kektff[7] = Bot.emojis.cache.get("731156842151149619").toString();
-  kektff[8] = Bot.emojis.cache.get("731156842411065434").toString();
-  kektff[9] = Bot.emojis.cache.get("738773225999171706").toString();*/
+  let kektff = [];
+  kektff[0] = Bot.emojis.cache.get("770188168808890368").toString();
+  kektff[1] = Bot.emojis.cache.get("770188168715567134").toString();
+  kektff[2] = Bot.emojis.cache.get("770188168623816734").toString();
+  kektff[3] = Bot.emojis.cache.get("770188168426553346").toString();
+  kektff[4] = Bot.emojis.cache.get("770188168279752745").toString();
+  kektff[5] = Bot.emojis.cache.get("770188168796307466").toString();
+  kektff[6] = Bot.emojis.cache.get("770188168577679361").toString();
+  kektff[7] = Bot.emojis.cache.get("770188168455520288").toString();
+  kektff[8] = Bot.emojis.cache.get("770188168472821780").toString();
+  kektff[9] = Bot.emojis.cache.get("742009706331242569").toString();
 
   let gun = [];
   gun[0] = Bot.emojis.cache.get("738769444523737207").toString();
@@ -131,7 +132,6 @@ Bot.on("message", msg => {
   let kekw = Bot.emojis.cache.get("700557146697367582").toString(); //KEKW
   let pepelook = Bot.emojis.cache.get("713340037713887272").toString(); //pepeLook
   let mc = Bot.emojis.cache.get("713340037043060766").toString(); //Mega Subscriber Pepeg
-  //let pog = Bot.emojis.cache.get("712180552408760351").toString(); //Pog
   let ppscoots = Bot.emojis.cache.get("713344557575700530").toString(); //Pepescoots
   let doggie = Bot.emojis.cache.get("713754840865701958").toString(); //Dogege
   let knioY = Bot.emojis.cache.get("714824198299582486").toString(); //Yoink
@@ -141,7 +141,6 @@ Bot.on("message", msg => {
   let wk = Bot.emojis.cache.get("722754412795265106").toString(); //Wraith King GIF
   let pandit = Bot.emojis.cache.get("734405304179228792").toString();//Panditge
   let flushed = Bot.emojis.cache.get("738348662471524472").toString();//Awkward_Flushed
-  //let kreygasm = Bot.emojis.cache.get("743161208022237234").toString()
   let gottem = Bot.emojis.cache.get("746646238354735164").toString()
 
   let c = msg.content.toString();
@@ -199,19 +198,15 @@ Bot.on("message", msg => {
         break;
       case "twitch":
         msg.channel.send(fun.twitch(msg.guild.name))
-            .then(() => console.log("twitch command executed!"))
+            
         break;
       case "shadap":
         let shadap = new Discord.MessageAttachment("./assets/shadap.wav");
         msg.channel.send(shadap);
         break;
-        // case "code":
-        //   let code = new Discord.MessageAttachment("./assets/skeleton_code.js");
-        //   msg.channel.send(code);
-        //   break;
       case "bp":
         msg.channel.send(fun.battlepass(pepeg, knioY, gaben))
-            .then(() => console.log("bp command executed!"))
+            
         break;
       case "doggie":
         msg.channel.send(`I'm a DOGGIE! ${doggie}`);
@@ -220,19 +215,19 @@ Bot.on("message", msg => {
         break;
       case "mc":
         msg.channel.send(fun.megasub(pepelook, mc))
-            .then(() => console.log("mc command executed!"));
+            
         break;
       case "kektff":
         msg.channel.send(kektff[9] + "👇")
-            .then(() => console.log("small kektff"));
+            
         msg.channel.send(fun.bigtff(kektff))
-            .then(() => console.log("big kektff, all executed!"));
+            
         break;
       case "kekega":
         msg.channel.send(gun[0] + kekega[9] + gun[1])
-            .then(() => console.log("kekega"));
+            
         msg.channel.send(fun.kekega_lord(kekega))
-            .then(() => console.log("kekega lord, all executed!"));
+            
         break;
       case "bulldog":
       case "bdog":
@@ -249,7 +244,7 @@ Bot.on("message", msg => {
       case "choose":
       case "prefer":
         msg.channel.send(fun.choose(t, forhd))
-            .then(() => console.log("choose/prefer command executed!"));
+            
         break;
       case "ome":
         //somehow make it ignore emojis
@@ -278,21 +273,21 @@ Bot.on("message", msg => {
         break;
       case "myiq":
         msg.reply(fun.myiq())
-            .then(() => console.log("myiq command executed!"));
+            
         break;
       case "leddit":
       case "reddit":
         msg.channel.send("https://www.reddit.com/user/topachez")
-            .then(() => console.log("reddit command executed!"));
+            
         break;
       case "youtube":
       case "yt":
         msg.channel.send("https://www.youtube.com/channel/UC7Zqy9v4kENk5N5hBfo3Bog")
-            .then(() => console.log("yt command executed!"));
+            
         break;
       case "soundcloud":
         msg.channel.send("https://soundcloud.com/topachez")
-            .then(() => console.log("soundcloud command executed!"));
+            
         break;
       case "pepeg":
       case "pepega":
@@ -334,13 +329,13 @@ Bot.on("message", msg => {
             //display all roles
             .addField("Roles", roles.join(" | "), true);
         msg.channel.send(info)
-            .then(() => console.log("userinfo command executed!"));
+            
         break;
       case "yeezus":
         msg.channel.send(fun.yeezus(bear))
-            .then(() => console.log("first part"));
+            
         msg.channel.send("Just kidding, you kinda cute ngl \n");
-        msg.channel.send(flushed).then(() => console.log("yeezus command executed!"));
+        msg.channel.send(flushed)
         break;
       case "bruoh":
         msg.channel.send("Bruoh's cheerleader WK = insta win " + wk);
