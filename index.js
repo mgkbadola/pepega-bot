@@ -80,40 +80,19 @@ Bot.on("message", msg => {
 
     //emotes
     let orange = [];
-    orange[0] = Bot.emojis.cache.get("761478419933691915").toString();
-    orange[1] = Bot.emojis.cache.get("761478488736792586").toString();
-    orange[2] = Bot.emojis.cache.get("761478512166567968").toString();
-    orange[3] = Bot.emojis.cache.get("761478551148953620").toString();
-    orange[4] = Bot.emojis.cache.get("761478570773315634").toString();
-    orange[5] = Bot.emojis.cache.get("761478587076444162").toString();
-    orange[6] = Bot.emojis.cache.get("761478612670480435").toString();
-    orange[7] = Bot.emojis.cache.get("761478640499425300").toString();
-    orange[8] = Bot.emojis.cache.get("761478657004011551").toString();
-    orange[9] = Bot.emojis.cache.get("726460408441077810").toString();
+    orange[0] = Bot.emojis.cache.find(emote => emote.name === 'Flushed_Orange').toString();
+    for (let i = 1; i <= 9; i++)
+        orange[i] = Bot.emojis.cache.find(emote => emote.name === `Orange${i}`).toString();
 
     let kekega = [];
-    kekega[0] = Bot.emojis.cache.get("774228320132268052").toString();
-    kekega[1] = Bot.emojis.cache.get("774228320430325791").toString();
-    kekega[2] = Bot.emojis.cache.get("774228320229392404").toString();
-    kekega[3] = Bot.emojis.cache.get("774228319993462794").toString();
-    kekega[4] = Bot.emojis.cache.get("774228320018497566").toString();
-    kekega[5] = Bot.emojis.cache.get("774228320236994580").toString();
-    kekega[6] = Bot.emojis.cache.get("774228319922290709").toString();
-    kekega[7] = Bot.emojis.cache.get("774228320630866000").toString();
-    kekega[8] = Bot.emojis.cache.get("774228320044056577").toString();
-    kekega[9] = Bot.emojis.cache.get("718512084157202472").toString();
+    kekega[0] = Bot.emojis.cache.find(emote => emote.name === `Kekega`).toString();
+    for (let i = 1; i <= 9; i++)
+        kekega[i] = Bot.emojis.cache.find(emote => emote.name === `KEKEGALord${i}`).toString();
 
     let kektff = [];
-    kektff[0] = Bot.emojis.cache.get("770188168808890368").toString();
-    kektff[1] = Bot.emojis.cache.get("770188168715567134").toString();
-    kektff[2] = Bot.emojis.cache.get("770188168623816734").toString();
-    kektff[3] = Bot.emojis.cache.get("770188168426553346").toString();
-    kektff[4] = Bot.emojis.cache.get("770188168279752745").toString();
-    kektff[5] = Bot.emojis.cache.get("770188168796307466").toString();
-    kektff[6] = Bot.emojis.cache.get("770188168577679361").toString();
-    kektff[7] = Bot.emojis.cache.get("770188168455520288").toString();
-    kektff[8] = Bot.emojis.cache.get("770188168472821780").toString();
-    kektff[9] = Bot.emojis.cache.get("742009706331242569").toString();
+    kektff[0] = Bot.emojis.cache.find(emote => emote.name === 'KEKTFF').toString();
+    for (let i = 1; i <= 9; i++)
+        kektff[i] = Bot.emojis.cache.find(emote => emote.name === `KEKTFF${i}`).toString();
 
     let gun = [];
     gun[0] = Bot.emojis.cache.get("738769444523737207").toString();
@@ -127,6 +106,11 @@ Bot.on("message", msg => {
     fat[0] = Bot.emojis.cache.get("738775043831627947").toString();
     fat[1] = Bot.emojis.cache.get("738775043860988004").toString();
     fat[2] = Bot.emojis.cache.get("738775044070703205").toString();
+
+    let pointup = [];
+    pointup[0] = Bot.emojis.cache.find(emote => emote.name === 'invis').toString();
+    for (let i = 1; i <= 7; i++)
+        pointup[i] = Bot.emojis.cache.find(emote => emote.name === `pointup${i}`).toString();
 
     let forhd = Bot.emojis.cache.get("711862298196705320").toString(); //4Head
     let zulul = Bot.emojis.cache.get("712738743395811401").toString(); //ZULUL
@@ -223,13 +207,12 @@ Bot.on("message", msg => {
 
                 break;
             case "kektff":
-                msg.channel.send(kektff[9] + "👇")
-
-                msg.channel.send(fun.bigtff(kektff))
+                msg.channel.send(pointup[0] + kektff[0] + "\t\t\t\t\t👇")
+                msg.channel.send(fun.bigtff(kektff, pointup))
 
                 break;
             case "kekega":
-                msg.channel.send(gun[0] + kekega[9] + gun[1])
+                msg.channel.send(gun[0] + kekega[0] + gun[1])
 
                 msg.channel.send(fun.kekega_lord(kekega))
 
@@ -374,7 +357,7 @@ Bot.on("message", msg => {
                 }
                 break;
             case "orangey":
-                msg.channel.send(pepelook + "\t" + orange[9]);
+                msg.channel.send(pepelook + "\t" + orange[0]);
                 msg.channel.send(fun.orangey(orange));
                 break;
             case "showall":

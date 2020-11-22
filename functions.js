@@ -33,20 +33,20 @@ module.exports = {
     megasub: function (pepelook, mc) {
         return `-25$ a month ${pepelook} \t ${mc} I ELP SIR!`
     },
-    bigtff: function (kektff) {
-        return (kektff[0] + kektff[1] + kektff[2] + "\n" +
-            kektff[3] + kektff[4] + kektff[5] + "\n" +
-            kektff[6] + kektff[7] + kektff[8])
+    bigtff: function (kektff, pointup) {
+        return (pointup[0] + pointup[1] + pointup[0] + kektff[1] + kektff[2] + kektff[3] + "\n" +
+            pointup[2] + pointup[3] + pointup[4] + kektff[4] + kektff[5] + kektff[6] + "\n" +
+            pointup[5] + pointup[6] + pointup[7] + kektff[7] + kektff[8] + kektff[9])
     },
     kekega_lord: function (kekega) {
-        return (kekega[0] + kekega[1] + kekega[2] + "\n" +
-            kekega[3] + kekega[4] + kekega[5] + "\n" +
-            kekega[6] + kekega[7] + kekega[8])
+        return (kekega[1] + kekega[2] + kekega[3] + "\n" +
+            kekega[4] + kekega[5] + kekega[6] + "\n" +
+            kekega[7] + kekega[8] + kekega[9])
     },
-    orangey: function (orange){
-        return (orange[0] + orange[1] + orange[2] + "\n" +
-            orange[3] + orange[4] + orange[5] + "\n" +
-            orange[6] + orange[7] + orange[8])
+    orangey: function (orange) {
+        return (orange[1] + orange[2] + orange[3] + "\n" +
+            orange[4] + orange[5] + orange[6] + "\n" +
+            orange[7] + orange[8] + orange[9])
     },
     choose: function (options, fourhead) {
         let n = options.slice(1, options.length).length;
