@@ -1,5 +1,27 @@
 const Discord = require("discord.js");
 const fun = require('./functions')
+const guildmems = ["PepegaBot",
+    "topachez",
+    "Raldy",
+    "Bulldaddy",
+    "Bruoh",
+    "Yeezus",
+    "OrangeyOrange",
+    "Rythm",
+    "5AM",
+    "piquantelk",
+    "Dank Memer",
+    "JohnnyMilos",
+    "DatGuyVJ",
+    "Mr Ares",
+    "burr1to",
+    "shampoo",
+    "Artour Shelby",
+    "Hettor",
+    "SimpBot",
+    "ffion",
+    "TriOPerA",
+    "cherryblossom18"]
 module.exports =
 {
     messageHandler: function (msg, Bot) {
@@ -49,6 +71,7 @@ module.exports =
         let wk = Bot.emojis.cache.find(emote => emote.name === 'bruohWK').toString();
         let pandit = Bot.emojis.cache.find(emote => emote.name === 'Panditga').toString();
         let monkaUGun = Bot.emojis.cache.find(emoji => emoji.name === 'monkaUGun');
+        let pepeLoser = Bot.emojis.cache.find(emoji => emoji.name === 'pepeLoser');
 
         let c = msg.content.toString();
 
@@ -269,7 +292,7 @@ module.exports =
                     break;
                 case fun.commands[28]:
                     let count = 0
-                    let emotearray = msg.guild.emojis.cache.map(e => `${e.toString()}`)
+                    let emotearray = msg.guild.emojis.cache.map((e) => `${e.toString()}`)
                     let tempstack = []
                     for (let i = 0; i < emotearray.length; i++) {
                         count = count + emotearray[i].length
@@ -366,19 +389,120 @@ module.exports =
                     })
 
                     break;
+                case fun.commands[37]:
+                    if (msg.guild.name === 'KEKTFF') {
+                        let duel = msg.guild.channels.cache.find(channelname => channelname.name === 'duel-logs')
+                        duel.messages.fetch().then((res) => {
+                            let wins = []
+                            let losses = []
+                            guildmems.forEach(guildmem => {
+                                wins.push({name: guildmem, score: 0})
+                                losses.push({name: guildmem, score: 0})
+                            })
+                            let w = ''
+                            let l = ''
+                            for (let x of res) {
+                                let str = x[1].toString()
+                                //console.log(str)
+                                w = str.match(/\*.+\*/)[0].replace(/\*/g, '')
+                                l = str.match('SER:.+')[0].replace('SER:', '')
+                                for (let i in wins) {
+                                    if (wins[i].name === w)
+                                        wins[i].score++
+                                    else if (losses[i].name === l)
+                                        losses[i].score++
+                                }
+                            }
+                            let result = '🏆 **TOP WINNERS** 🏆\n'
+                            wins = wins.filter((winner) => winner.score > 0)
+                            wins = wins.sort(function (a, b) {
+                                if (a.score > b.score)
+                                    return -1;
+                                else if (a.score < b.score)
+                                    return 1;
+                                else {
+                                    if (a.name.toUpperCase() > b.name.toUpperCase())
+                                        return -1;
+                                    if (a.name.toUpperCase() < b.name.toUpperCase())
+                                        return 1;
+
+                                    return 0;
+                                }
+                            })
+                            for (let i in wins) {
+                                result += `${wins[i].name}: ${wins[i].score}\n`
+                            }
+                            result += `${pepeLoser} **TOP LOSERS** ${pepeLoser}\n`
+                            losses = losses.filter((loser) => loser.score > 0)
+                            losses = losses.sort(function (a, b) {
+                                if (a.score > b.score)
+                                    return -1;
+                                else if (a.score < b.score)
+                                    return 1;
+                                else {
+                                    if (a.name.toUpperCase() > b.name.toUpperCase())
+                                        return -1;
+                                    if (a.name.toUpperCase() < b.name.toUpperCase())
+                                        return 1;
+
+                                    return 0;
+                                }
+                            })
+                            for (let i in losses) {
+                                result += `${losses[i].name}: ${losses[i].score}\n`
+                            }
+                            msg.channel.send(result)
+                        })
+                    }
+                    break
             }
         } else {
             if (fun.contains(c.toLowerCase(), fun.z))
                 msg.react("712738743395811401").then(() => {
                 });
-
-            if (c.includes("more like")) {
+            if (c.match(/.+ more like .+/g)) {
                 msg.react("746646238354735164").then(() => {
                 });
                 msg.react("713344557575700530").then(() => {
                 });
             }
+            if (msg.guild.name === 'KEKTFF') {
+                if (c.includes('winning') || c.includes('wins')) {
+                    let f
+                    let ff = ''
+                    let s
+                    let ss = ''
+                    let isf = true
+                    if (msg.channel.name === 'duel') {
+                        for (let guildmem of guildmems)
+                            if (c.includes(guildmem)) {
+                                if (isf) {
+                                    f = c.indexOf(guildmem)
+                                    ff = guildmem
+                                    isf = false
+                                } else {
+                                    s = c.indexOf(guildmem)
+                                    ss = guildmem
+                                    isf = true
+                                }
+                                if (f && s)
+                                    break
+                            }
+                        if (!c.includes('wins')) {
+                            if (f < s)
+                                msg.guild.channels.cache.find(ch => ch.name === 'duel-logs').send(`MATCH RESULTS:\nWINNER:**${ff}**\nLOSER:${ss}`)
+                            else
+                                msg.guild.channels.cache.find(ch => ch.name === 'duel-logs').send(`MATCH RESULTS:\nWINNER:**${ss}**\nLOSER:${ff}`)
+                        } else {
+                            if (f < s)
+                                msg.guild.channels.cache.find(ch => ch.name === 'duel-logs').send(`MATCH RESULTS:\nWINNER:**${ss}**\nLOSER:${ff}`)
+                            else
+                                msg.guild.channels.cache.find(ch => ch.name === 'duel-logs').send(`MATCH RESULTS:\nWINNER:**${ff}**\nLOSER:${ss}`)
+                        }
+
+                    }
+                }
+            }
         }
-    },
-    Discord
+    }
 }

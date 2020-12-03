@@ -71,7 +71,7 @@ module.exports = {
     commands: ["8ball", "allo", "avatar", "bdog", "bp", "brazil", "bruoh", "bulldog", "choose", "doggie", "elp", "etu",
         "help", "kekega", "kektff", "kekw", "leddit", "mc", "myiq", "ome", "orangey", "pandit", "pepeg", "pepega",
         "pepege", "prefer", "reddit", "shadap", "showall", "soundcloud", "sourdough", "starter", "tank", "twitch",
-        "userinfo", "youtube", "yt"],
+        "userinfo", "youtube", "yt", "duelhistory"],
     z: [
         "zulul", "allo", "vj emmie", "supa", "watafak", "action is coming", "gwa", "know da", "commando",
         "i prefer men", "poopoo", "poo poo", "captain alex", "subaru", "warria", "bruce u", "uganda",
