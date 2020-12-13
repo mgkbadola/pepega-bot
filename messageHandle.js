@@ -390,7 +390,7 @@ module.exports =
 
                     break;
                 case fun.commands[37]:
-                    if (msg.guild.name === 'KEKTFF') {
+                    if (msg.guild.name === 'KeekoSmoke') {
                         let duel = msg.guild.channels.cache.find(channelname => channelname.name === 'duel-logs')
                         duel.messages.fetch().then((res) => {
                             let wins = []
@@ -466,7 +466,7 @@ module.exports =
                 msg.react("713344557575700530").then(() => {
                 });
             }
-            if (msg.guild.name === 'KEKTFF') {
+            if (msg.guild.name === 'KeekoSmoke') {
                 if (c.includes('winning') || c.includes('wins')) {
                     let f
                     let ff = ''
